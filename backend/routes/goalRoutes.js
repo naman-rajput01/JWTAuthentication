@@ -1,5 +1,5 @@
 const express = require("express")
-const { getGoals, setGoals, updateGoals, deleteGoals } = require("../controller/gaolContainer")
+const { getGoals, setGoals, updateGoals, deleteGoals } = require("../controller/goalController")
 const router = express.Router()
 
 
