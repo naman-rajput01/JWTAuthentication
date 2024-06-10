@@ -1,12 +1,13 @@
 const express = require("express")
 const { getGoals, setGoals, updateGoals, deleteGoals } = require("../controller/goalController")
 const router = express.Router()
+const { protect } = require("../middleware/authMiddleware")
 
 
 // chaining the same routes with same end point but different method
-router.route('/').get(getGoals).post(setGoals);
+router.route('/').get(protect, getGoals).post(protect, setGoals);
 
-router.route('/:id').delete(deleteGoals).put(updateGoals)
+router.route('/:id').delete(protect, deleteGoals).put(protect, updateGoals)
 
 // router.get('/', getGoals)
 // router.post('/', setGoals)

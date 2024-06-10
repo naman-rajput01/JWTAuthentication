@@ -1,16 +1,20 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const goalSchema = mongoose.Schema(
     {
-        text:
-        {
+        text: {
             type: String,
-            required: [true, "Please add a text value"]
-        }
+            required: [true, "Please add a text value"],
+        },
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'User',
+        },
     },
     {
         timestamps: true,
     }
-)
+);
 
-module.exports = mongoose.model("Goal", goalSchema)
+module.exports = mongoose.model("Goal", goalSchema);
